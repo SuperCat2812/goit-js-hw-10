@@ -1,0 +1,14 @@
+/* // Додатковий імпорт стилів */
+@import 'flatpickr/dist/flatpickr.min.css';
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
