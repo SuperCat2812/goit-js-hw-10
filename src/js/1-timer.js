@@ -37,6 +37,9 @@ const options = {
   },
 };
 refs.start.addEventListener('click', () => {
+  refs.start.disabled = true;
+  refs.timer.value = '';
+  refs.timer.disabled = true;
   let timer = setInterval(() => {
     let date = new Date();
     let dates = selectedDate - date;
@@ -53,6 +56,7 @@ refs.start.addEventListener('click', () => {
     console.log(dates);
     if (days === 0 && minutes === 0 && hours === 0 && seconds === 0) {
       clearInterval(timer);
+      refs.timer.disabled = false;
     }
   }, 1000);
 });

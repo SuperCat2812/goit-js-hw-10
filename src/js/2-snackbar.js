@@ -5,12 +5,10 @@ const refs = {
   radioBtnFalse: document.querySelector('input[value="rejected"]'),
   button: document.querySelector('button'),
 };
-console.log(refs.delay);
 
-console.log(refs.radioBtnTrue.checked);
 refs.button.addEventListener('click', e => {
   e.preventDefault();
-  if (refs.delay.value && (refs.radioBtnTrue.checked || refs.radioBtnFalse.children)) {
+  if (refs.delay.value && (refs.radioBtnTrue.checked || refs.radioBtnFalse.checked)) {
     e.preventDefault();
     const promise = new Promise((fulfilled, reject) => {
       if (refs.radioBtnTrue.checked) {
