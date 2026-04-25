@@ -8,19 +8,19 @@ const refs = {
 
 refs.button.addEventListener('click', e => {
   e.preventDefault();
-  if (refs.delay.value && (refs.radioBtnTrue.checked || refs.radioBtnFalse.checked)) {
-    e.preventDefault();
-    const promise = new Promise((fulfilled, reject) => {
-      if (refs.radioBtnTrue.checked) {
-        fulfilled(refs.delay.value);
-      } else {
-        reject(refs.delay.value);
-      }
-    });
+  setTimeout(() => {
+    if (refs.delay.value && (refs.radioBtnTrue.checked || refs.radioBtnFalse.checked)) {
+      e.preventDefault();
+      const promise = new Promise((fulfilled, reject) => {
+        if (refs.radioBtnTrue.checked) {
+          fulfilled(refs.delay.value);
+        } else {
+          reject(refs.delay.value);
+        }
+      });
 
-    promise
-      .then(result => {
-        setTimeout(() => {
+      promise
+        .then(result => {
           iziToast.show({
             position: 'topRight',
             backgroundColor: 'green',
@@ -28,10 +28,8 @@ refs.button.addEventListener('click', e => {
             titleColor: '#ffff',
             titleSize: 16,
           });
-        }, result);
-      })
-      .catch(error => {
-        setTimeout(() => {
+        })
+        .catch(error => {
           iziToast.show({
             position: 'topRight',
             backgroundColor: '#EF4040',
@@ -39,7 +37,7 @@ refs.button.addEventListener('click', e => {
             titleColor: '#ffff',
             titleSize: 16,
           });
-        }, error);
-      });
-  }
+        });
+    }
+  }, refs.delay.value);
 });
