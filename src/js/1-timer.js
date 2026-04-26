@@ -27,7 +27,7 @@ const options = {
         messageColor: '#FFFFFF',
         position: 'topRight',
         backgroundColor: '#EF4040',
-        iconUrl: '../img/bi_x-octagon.svg',
+        iconUrl: './img/bi_x-octagon.svg',
       });
       refs.start.disabled = true;
     } else {
